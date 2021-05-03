@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+  <title>T66graafiku loomine</title>
+  <style type="text/css">
+    body { max-width: 600px; margin: 1em auto; }
+  </style>
+</head>
+<body>
+  <h1>Kohviku töögraafiku genereerimis utiliit</h1>
+  <p>
+
+  <form action="/tulem" method="POST">
+
+              <u>Kõik väljad on kohustuslikud.</u><br><br>
+        Palun valige loodava töögraafiku kuu ja aasta:<br><br>
+      
+               <label for="kuu">Kuu:</label>
+                        <select name="kuu" id="kuu">
+                                <option style="display:none"> - </option>
+                                {% for data in kuu_list %}
+                        <option value="{{data}}">{{data}}</option>"
+                                {% endfor %}
+                        </select>
+                        <br>
+                        <br>
+
+                <label for="aasta">Aasta:</label>
+                        <select name="aasta" id="aasta">
+                                <option style="display:none"> - </option>
+                                {% for data2 in aasta_list %}
+                        <option value="{{data2}}">{{data2}}</option>"
+                                {% endfor %}
+                        </select>
+                        <br>
+                        <br>
+        
+        Valige, mitu töötajat on korraga tööl tööpäeviti ja mitu nädalavahetusel.
+                        <br>
+                        <br>        
+                <label for="n2d_sees">Töötajaid nädala sees:</label>
+                        <select name="n2d_sees" id="n2d_sees">
+                                <option style="display:none"> - </option>
+                                {% for data3 in t66tajate_arv %}
+                        <option value="{{data3}}">{{data3}}</option>"
+                                {% endfor %}
+                        </select>
+                        <br>
+                        <br>
+
+                <label for="n2d_vahetus">Töötajaid nädalavahetusel:</label>
+                        <select name="n2d_vahetus" id="n2d_vahetus">
+                                <option style="display:none"> - </option>
+                                {% for data4 in t66tajate_arv %}
+                        <option value="{{data4}}">{{data4}}</option>"
+                                {% endfor %}
+                        </select>
+                        <br>
+                        <br>
+
+                        
+      Kirjutage lahtrisse töötajad koos vabade päevadega. <br>
+      Igale reale töötaja nimi, koolon, komadega eraldatud vabad päevad, ilma
+      tühikuteta. <br><br>
+
+      <b>Näide:</b> <br>
+      Brandon:4,5,6,7,9,10<br>
+      Stacey:10,11,12,25,26<br>
+      Johnny:4,5,6,12,17,18,28<br>
+      Adrian:21,22,23,27<br>
+      Corey:11,20,21,22,23,28<br>
+      Will:16,19,21<br>
+      Blair:3,5,29<br>
+      Rory:1,2,3,4,5,6,7<br>
+
+      </p>
+
+  <textarea name="text" rows="24" cols="66"></textarea><br>
+  <input type="submit" value="Genereeri graafik">
+  </form>
+</body>
+</html>
